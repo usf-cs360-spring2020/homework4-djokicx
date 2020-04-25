@@ -1,0 +1,26 @@
+.legend-names {
+    font-family: Roboto;
+    font-weight: light;
+    font-size: 7.5pt;
+    letter-spacing: -1px;
+}
+
+.legend-title {
+    font-family: Roboto;
+    font-weight: light;
+    font-size: 10pt;
+    letter-spacing: 0px;
+}
+
+.axis {
+    opacity: 0.6;
+  }
+  .axis:hover {
+    opacity: 1;
+    font-weight: bold;
+  }
+
+svg {
+    width:980;
+    height: 700;
+}

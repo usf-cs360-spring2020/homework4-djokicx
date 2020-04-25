@@ -1,0 +1,30 @@
+svg {
+    font: 10px sans-serif;
+    shape-rendering: crispEdges;
+    width: 950px;
+    height: 950px;
+  }
+
+  .axis path,
+  .axis line {
+    stroke: none;
+    fill: none;
+  }
+  
+  .axis text {
+    fill: dimgrey;
+    font-size: 9px;
+  }
+  path.domain {
+    stroke: none;
+  }
+ 
+  .y .tick line {
+    stroke: none;
+  }
+
+.grid {
+    stroke: darkgrey;
+    color: darkgrey;
+    
+}

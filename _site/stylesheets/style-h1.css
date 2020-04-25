@@ -1,0 +1,39 @@
+
+
+#heatmap{
+    /* bl.ocks.org defaults to 960px by 500px */
+        width: 950px;
+        height: 950px;
+    
+        background-color: white;
+    }
+    
+    #stacked{
+        width: 950px;
+        height: 400px;
+    
+        background-color: white;
+    }
+    
+    #parallel{
+        width: 950px;
+        height: 900px;
+    
+        background-color: white;
+    }
+    
+    .axis path,
+    .axis line {
+      stroke: none;
+      fill: none;
+    }
+    
+    .axis text {
+      fill: dimgrey;
+      font-size: 9px;
+    }
+    
+    .label {
+      fill: darkslategray;
+      font-size: 13px;
+    }

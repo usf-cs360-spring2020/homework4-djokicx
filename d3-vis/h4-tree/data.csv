@@ -1,0 +1,51 @@
+call,count,group,district
+"Medical Incident ",26710,"Non-Life-Threatening",1
+"Traffic Collision",2524,"Non-Life-Threatening",1
+"Traffic Collision",4495,"Potentially Life-Threatening",1
+"Aircraft Emergency",16,"Alarm",1
+"Alarms",285,"Alarm",1
+"Assist Police",34,"Alarm",1
+"Citizen Assist or Service Call",245,"Alarm",1
+"Electrical Hazard",653,"Alarm",1
+"Elevator or Escalator Rescue",355,"Alarm",1
+"Fuel Spill",312,"Alarm",1
+"Gas Leak Natural and LP Gases",371,"Alarm",1
+"HazMat",190,"Alarm",1
+"Medical Incident",67,"Alarm",1
+"Odor Strange or Unknown",908,"Alarm",1
+"Other",1652,"Alarm",1
+"Outside Fire",17,"Alarm",1
+"Smoke Investigation Outside",424,"Alarm",1
+"Structure Fire",10085,"Alarm",1
+"Explosion",106,"Fire",1
+"Extrication or Entrapped Machinery  Vehicle",41,"Fire",1
+"HazMat",9,"Fire",1
+"High Angle Rescue",310,"Fire",1
+"Industrial Accidents",132,"Fire",1
+"Marine Fire",2,"Fire",1
+"Odor Strange or Unknown",1,"Fire",1
+"Other",1,"Fire",1
+"Outside Fire",1770,"Fire",1
+"Structure Fire",2786,"Fire",1
+"Suspicious Package",12,"Fire",1
+"Vehicle Fire",387,"Fire",1
+"Watercraft in Distress",14,"Fire",1
+"Water Rescue",2522,"Fire",1
+"Other",133,"Non-Life-Threatening",1
+"Medical Incident",49951,"Potentially Life-Threatening",1
+"Other",87,"Potentially Life-Threatening",1
+"Water Rescue",11,"Potentially Life-Threatening",1
+"Administrative",7,"Fire",1
+"Aircraft Emergency",13,"Alarm",1
+"Assist Police",84,"Alarm",1
+"Medical Incident",90230,"Other Incidents",1
+"Oil Spill",32,"Other Incidents",1
+"Other",2584,"Other Incidents",1
+"Outside Fire",1539,"Other Incidents",1
+"Smoke Investigation Outside",414,"Other Incidents",1
+"Structure Fire",18599,"Other Incidents",1
+"Suspicious Package",27,"Other Incidents",1
+"Traffic Collision",7946,"Other Incidents",1
+"Vehicle Fire",671,"Other Incidents",1
+"Watercraft in Distress",37,"Other Incidents",1
+"Water Rescue",1866,"Other Incidents",1

@@ -1,0 +1,211 @@
+
+<!doctype>
+<html lang="en">
+  <head>
+    <meta content='SFO Passengers Data (H1) - Dejan Djokic' name='title' />
+    <meta content='SFO Passengers Data (H1) - Dejan Djokic' name='og:title' />
+    <title>SFO Passengers Data (H1) - Dejan Djokic</title>
+    <link href='https://usf-cs360-spring2020.github.io/homework4-djokicx/images/fav.png' rel='shortcut icon'>
+<link href='https://usf-cs360-spring2020.github.io/homework4-djokicx/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='https://usf-cs360-spring2020.github.io/homework4-djokicx/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <meta content='https://usf-cs360-spring2020.github.io/homework4-djokicx/posts/hw-1' property='og:url' />
+  <meta content="DatasetSource: data.sfgov.orgPublishing Department: Airport (SFO)Rows: 21.2KColumns: 12License: Public Domain Dedicat..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+
+<!--  -->
+
+
+
+  </head>
+  <body class="lh-copy dark-gray pa0 f6 sans-serif bg-super-white">
+    <header class="tc mt4">
+      <a href="https://usf-cs360-spring2020.github.io/homework4-djokicx">
+        <img src="https://usf-cs360-spring2020.github.io/homework4-djokicx/images/scribble.png" alt="Home" width="53" height="59">
+      </a>
+      <p>Dejan Djokic</p>
+    </header>
+    <div class="w-80 bg-white mt4 mb3 center br2-ns bt bb ba-ns b--light-gray">
+      <nav class="bb b--light-gray pv4 tc" aria-label="Main">
+        
+          <a class="link blue hover-mid-gray mh2 pv1"
+             href="https://usf-cs360-spring2020.github.io/homework4-djokicx/">
+             Posts
+           </a>
+        
+          <a class="link blue hover-mid-gray mh2 pv1"
+             href="https://usf-cs360-spring2020.github.io/homework4-djokicx/about">
+             About me
+           </a>
+        
+      </nav>
+
+      <main class="tl f6 relative pa4 pa5-ns overflow-hidden">
+        
+          <div class="mb4">
+            <div class="fw600 light-silver mt1">12 Feb 2020</div>
+            <h1 class="ttu f3 mt0 lh-title cb mb2">
+              
+              SFO Passengers Data (H1)
+            </h1>
+            
+          </div>
+        
+        <div class="markdown-body">
+          <h2 id="dataset">Dataset</h2>
+
+<p>Source: <a href="data.sfgov.org">data.sfgov.org</a><br />
+Publishing Department: Airport (SFO)<br />
+Rows: <strong>21.2K</strong><br />
+Columns: <strong>12</strong><br />
+License: Public Domain Dedication and License v1.0 (PDDL)<br />
+Accessed: <em>February 01, 2020</em><br /></p>
+
+<h2 id="brief-overview">Brief Overview</h2>
+<p>Aiming for the highest grade <strong>(A)</strong> with submission of <strong><em>3</em></strong> Tableau prototypes &amp; <strong><em>2</em></strong> D3.js visualizations</p>
+
+<ol>
+  <li>A heatmap visualizing number of passengers in the inclusive time range 2010 - 2018 for airlines that had less than 1M passengers per year
+    <ul>
+      <li>Encoded data using an acceptable encoding: <strong>heatmap</strong></li>
+      <li>Data grouped by individual Operating Airline Passenger Count per year</li>
+      <li>Used Viridis color palette to encode the data, presented in the legend on the right</li>
+      <li>Used titles and axis labels</li>
+      <li>Included captions with my name and original data source
+ <br /><br /></li>
+    </ul>
+  </li>
+  <li>A stacked bar chart visualizing the number of passengers in the inclusive time range 2010 - 2018 for airlines that had less than 1M passengers per year, while separating them by activity (Enplaned vs Deplaned, which is equivalent to Arriving vs Departing passengers)
+    <ul>
+      <li>Encoded data using an acceptable encoding: <strong>stacked bars</strong></li>
+      <li>Data grouped by Passenger Count for Activity Type across airlines satisfying above conditions (less than 1M passengers in total per annum) per year</li>
+      <li>Used two colors to differentiate Activity type, presented in the legend on the right</li>
+      <li>Used titles and axis labels</li>
+      <li>Included captions with my name and original data source</li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="visualization-1">Visualization 1</h1>
+
+<h2 id="tableu-prototype">Tableu Prototype</h2>
+
+<p><img src="../d3-vis/h1-heatmap/tabl/proto.png" alt="" /></p>
+
+<h2 id="intepretation">Intepretation</h2>
+
+<p>On the X-axis we represent the inclusive time range 2010 - 2018, while the Y-axis represents the airline.</p>
+
+<p>Passenger count in the heatmap is given for each airline (Y-axis) in a particular year (X-axis). Passenger count is encoded by Viridis color palette, with the legend displayed on the right-hand side. Colors with blue-ish hues are at the bottom of the scale representing smaller values, while colors with yellow-ish hues are at the top of the scale representing larger values.</p>
+
+<h2 id="data-wrangling">Data Wrangling</h2>
+
+<p>A row in the raw data represented passenger count for an airline in a given month of the year (this is a subset of each row info, as more columns were included in the original data). Data is slightly incomplete for the year 2019 and is missing 3 months. For this reason, 2019 related data was excluded.</p>
+
+<p>After summarizing yearly passenger count for a particular airline, the following criteria were used to filter the results and exclude:</p>
+<ol>
+  <li>Airlines with passenger count &gt; 1M for any particular year - so one can say this visualizes smaller volume airlines</li>
+  <li>Airlines that had gap data (missing any month or a year) in the original data</li>
+</ol>
+
+<p>You can find the filtered data <a href="../d3-vis/h1-heatmap/airlines-clean.csv">here</a>.</p>
+
+<h2 id="conclusions">Conclusions</h2>
+
+<p>We can conclude that there is generally a growth trend, although not significant. One interesting case is the “Frontier Airline” who experienced massive growth in passengers through SFO during the inclusive 2013-2016 time range, and then sharply fell in the following years.</p>
+
+<h3 id="sfo-passenger-trends-in-the-inclusive-2010-2018-time-range-for-airline-w-less-than-1-m-passengers-total-per-year">SFO Passenger Trends in the inclusive 2010-2018 time range for airline w less than 1 M passengers total per year</h3>
+
+<svg id="heatmap"></svg>
+
+<p><em>Author: Dejan Djokic</em> <br />
+<em>Original Data Source: <a href="data.sfgov.org">data.sfgov.org</a></em><br /></p>
+
+<p>Resources/Inspirations:<br />
+<em><a href="https://www.d3-graph-gallery.com/graph/heatmap_basic.html">D3-Graph-Gallery</a></em><br />
+<em><a href="https://blockbuilder.org/sjengle/47c5c20a18ec29f4e2b82905bdb7fe95">Affordability Heatmap</a></em><br />
+<em><a href="https://blockbuilder.org/achebrol/31833ec3fb7554d2b8e01e1ab32a09d1">BlockBuilder Example</a></em><br /></p>
+
+<h1 id="visualization-2">Visualization 2</h1>
+
+<h2 id="tableu-prototype-1">Tableu Prototype</h2>
+
+<p><img src="../d3-vis//h1-stacked-chart/tabl/proto.png" alt="" /></p>
+
+<h2 id="intepretation-1">Intepretation</h2>
+
+<p>On the X-axis we represent the inclusive time range 2010 - 2018, while the Y-axis represents the number of passengers, in millions.</p>
+
+<p>The stacked bars represent passenger activity (Enplaned vs Deplaned, which is equivalent to Arriving vs Departing passengers). We can reference the Y-axis to determine roughly the amount of passengers. But more so, we can compare the stacked bars from different years and see how the passenger count has changed for the two activities. Enplaned activity is represented with color hex <code class="highlighter-rouge">#4d78a7</code>, while Deplaned activity is represented with color hex <code class="highlighter-rouge">#f28e2c</code>.</p>
+
+<h2 id="data-wrangling-1">Data Wrangling</h2>
+
+<p>From <a href="#visualization-1">Visualization #1</a> data manipulation we filtered the airlines that we are interested in. For those same airlines, we summed all of their passengers’ counts for a particular passenger activity in a given year. Once again we excluded 2019 data due to incompleteness. Activity titled ‘Transit’ was also excluded, as it had only one data point.</p>
+
+<p>You can find the filtered data <a href="../d3-vis/h1-stacked-chart/data-clean.csv">here</a>.</p>
+
+<h2 id="conclusions-1">Conclusions</h2>
+
+<p>We can conclude that the number of passengers Arriving and Departing stays more or less equally split for any given year. That is, it seems that there is a golden ration between Arriving and Departing passengers. Once again we can conclude that there is a growth trend overall in the number of passengers year-to-year just like we did in the first visualization. In this visualization, however, that is more apparent.</p>
+
+<h3 id="a-stacked-bar-chart-visualizing-the-number-of-passengers-in-the-inclusive-time-range-2010---2018-for-airlines-that-had-less-than-1m-passengers-per-year-while-separating-them-by-activity-enplaned-vs-deplaned">A stacked bar chart visualizing the number of passengers in the inclusive time range 2010 - 2018 for airlines that had less than 1M passengers per year, while separating them by activity (Enplaned vs Deplaned)</h3>
+<svg width="960" height="600" id="vis">
+    <g id="basemap"></g>
+
+    <!-- turn off pointer events for certain groups -->
+    <g id="streets" pointer-events="none"></g>
+    <g id="outline" pointer-events="none"></g>
+
+    <g id="arrests"></g>
+    <g id="tooltip" pointer-events="none"></g>
+    <g id="details" pointer-events="none"></g>
+  </svg>
+
+<figcaption>
+    Source: <a href="https://data.sfgov.org/Public-Safety/Police-Department-Incident-Reports-2018-to-Present/wg3w-h783">Police Department Incident Reports: 2018 to Present</a> (<a href="https://data.sfgov.org/Geographic-Locations-and-Boundaries/Analysis-Neighborhoods/p5b7-5n3h">Neighborhoods</a>, <a href="https://data.sfgov.org/Geographic-Locations-and-Boundaries/Streets-Active-and-Retired/3psu-pn9h">Streets</a>)
+  </figcaption>
+
+<p><em>Author: Dejan Djokic</em> <br />
+<em>Original Data Source: <a href="data.sfgov.org">data.sfgov.org</a></em><br /></p>
+
+<p>Resources/Inspirations:<br /></p>
+
+<p><em><a href="https://www.d3-graph-gallery.com/graph/custom_legend.html">D3-Graph-Gallery Ex 1</a></em><br />
+<em><a href="https://www.d3-graph-gallery.com/graph/barplot_stacked_basicWide.html">D3-Graph-Gallery Ex 2</a></em><br />
+<em><a href="https://observablehq.com/@ericd9799/learning-stacked-bar-chart-in-d3-js">BlockBuilder Example</a></em><br /></p>
+
+<h1 id="visualization-3---prototype-only">Visualization 3 - Prototype Only</h1>
+
+<p><img src="../d3-vis/h1-stacked-chart-2/proto/proto.png" alt="" /></p>
+
+<script src="https://d3js.org/d3.v5.js"></script>
+
+<script src="../d3-vis/h1-heatmap/heatmap.js"></script>
+
+<script src="../d3-vis/h1-stacked-chart/stacked.js"></script>
+
+<link href="../stylesheets/style-h1.css" rel="stylesheet" />
+
+
+        </div>
+        <p class="mt4">
+  Til next time,<br>
+  djokic
+  <span class="silver">2020-02-12 00:00:00 -0700</span>
+</p>
+<img src="https://usf-cs360-spring2020.github.io/homework4-djokicx/images/scribble3.png" alt="scribble" />
+
+      </main>
+      
+    </div>
+    <footer class="mw7 center tc pt3 pb4 silver">
+      Built with Jekyll using <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>.
+      <img src="https://usf-cs360-spring2020.github.io/homework4-djokicx/images/scribble2.png" alt="scribble" class="mt4 db center" />
+    </footer>
+  </body>
+</html>

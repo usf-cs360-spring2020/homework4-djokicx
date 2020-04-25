@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dejan Djokic</title>
+    <description>Dejan's data viz blog.</description>
+    <link>https://usf-cs360-spring2020.github.io/homework4-djokicx</link>
+    <atom:link href="https://usf-cs360-spring2020.github.io/homework4-djokicx/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>Fire Department Calls for District 1 in Trees (H4)</title>
+        <description>&lt;h2 id=&quot;dataset&quot;&gt;Dataset&lt;/h2&gt;
+
+&lt;p&gt;Source: SF Gov Data&lt;br /&gt;
+Publishing Department: Fire Department&lt;br /&gt;
+Data: &lt;a href=&quot;https://data.sfgov.org/Public-Safety/Fire-Department-Calls-for-Service/nuek-vuh3&quot;&gt;https://data.sfgov.org/Public-Safety/Fire-Department-Calls-for-Service/nuek-vuh3&lt;/a&gt;&lt;br /&gt;
+Rows: &lt;strong&gt;5.26M&lt;/strong&gt;&lt;br /&gt;
+Columns: &lt;strong&gt;34&lt;/strong&gt;&lt;br /&gt;
+License: Open Data Commons Public Domain Dedication and License&lt;br /&gt;
+Accessed: &lt;em&gt;April 22, 2020&lt;/em&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;fire-department-calls-for-district-1&quot;&gt;Fire Department Calls for District 1&lt;/h1&gt;
+
+&lt;h2 id=&quot;intepretation&quot;&gt;Intepretation&lt;/h2&gt;
+
+&lt;p&gt;The intention was to visualize fire department calls in district 1.&lt;/p&gt;
+
+&lt;p&gt;Since we used hierarchical visualization techniques we had to specify a hierachy. The hierarchy used in both is the following:&lt;/p&gt;
+
+&lt;p&gt;District » Call Type Group » Call Type.&lt;/p&gt;
+
+&lt;p&gt;The top visualization uses circle packing layout. The size of each circle represents the count of incidents for that particular selection.&lt;/p&gt;
+
+&lt;p&gt;The bottom visualization uses circular dendogram with curved edges. The outer leaf nodes represent the call types.&lt;/p&gt;
+
+&lt;p&gt;Color scale uses the Viridis color pallete.&lt;/p&gt;
+
+&lt;h2 id=&quot;data-wrangling&quot;&gt;Data Wrangling&lt;/h2&gt;
+
+&lt;p&gt;Data was filtered exclusively for District 1, Grouped by Call Type Group and Call Type and then rolled up by the number of incidents. There were calls that were missing one or more of these columns - these were excluded from the dataset.&lt;/p&gt;
+
+&lt;p&gt;You can find the filtered data &lt;a href=&quot;../d3-vis/h4-tree/data.csv&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;interactivity&quot;&gt;Interactivity&lt;/h2&gt;
+
+&lt;p&gt;The on-demand interactivity highlights the boundary of a circle in the top visualization. In the bottom one, it highlights the boundaries of the entire path, back to the root from the child.&lt;/p&gt;
+
+&lt;p&gt;I attempted brushing in both visualizations (selection on either would perform brushing on both).&lt;/p&gt;
+
+&lt;p&gt;I had certain small bugs on tooltips of the opposite visualiation (e.g. if you select a circle in viz 1, the tooltip in viz 2 would in certain cases be misaligned). For this reason I left that out. However, brushing is still present.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
+
+&lt;p&gt;Going back to conclusions from previously looking at this dataset, it really seems that firefighters mostly deal with Medical Incident. Suprisingly enough, in ‘Fire’ Call Type Group, there are a lot of Water Rescue incidents (Call Type).&lt;/p&gt;
+
+&lt;h3 id=&quot;fire-department-calls-in-trees&quot;&gt;Fire Department Calls in Trees&lt;/h3&gt;
+&lt;svg width=&quot;960&quot; height=&quot;600&quot; id=&quot;vis&quot;&gt;&lt;/svg&gt;
+
+&lt;figcaption&gt;
+    Author: Dejan Djokic &lt;br /&gt;
+    Source: &lt;a href=&quot;https://data.sfgov.org/Public-Safety/Fire-Department-Calls-for-Service/nuek-vuh3&quot;&gt;Fire Department Calls&lt;/a&gt;
+  &lt;/figcaption&gt;
+
+&lt;p&gt;Resources/Inspirations:&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://observablehq.com/@sjengle/java-11-api-hierarchy-visualization&quot;&gt;sjengle Observable&lt;/a&gt;&lt;/em&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;script src=&quot;https://d3js.org/d3.v5.js&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;../d3-vis/h4-tree/tree.js&quot;&gt;&lt;/script&gt;
+
+&lt;link href=&quot;https://fonts.googleapis.com/css?family=Roboto&quot; rel=&quot;stylesheet&quot; /&gt;
+
+&lt;link href=&quot;../stylesheets/style-h4.css&quot; rel=&quot;stylesheet&quot; /&gt;
+
+</description>
+        <pubDate>Fri, 24 Apr 2020 00:00:00 -0600</pubDate>
+        <link>https://usf-cs360-spring2020.github.io/homework4-djokicx/posts/hw-4</link>
+        <guid isPermaLink="true">https://usf-cs360-spring2020.github.io/homework4-djokicx/posts/hw-4</guid>
+      </item>
+    
+      <item>
+        <title>Graffiti Incidents in San Francisco (H3)</title>
+        <description>&lt;h2 id=&quot;dataset&quot;&gt;Dataset&lt;/h2&gt;
+
+&lt;p&gt;Source: SF Gov Data&lt;br /&gt;
+Publishing Department: 311&lt;br /&gt;
+Data: &lt;a href=&quot;https://data.sfgov.org/City-Infrastructure/311-Cases/vw6y-z8j6&quot;&gt;https://data.sfgov.org/City-Infrastructure/311-Cases/vw6y-z8j6&lt;/a&gt;&lt;br /&gt;
+Rows: &lt;strong&gt;4.14M&lt;/strong&gt; (subset used &lt;strong&gt;~6K&lt;/strong&gt;)&lt;br /&gt;
+Columns: &lt;strong&gt;20&lt;/strong&gt;&lt;br /&gt;
+License: Open Data Commons Public Domain Dedication and License&lt;br /&gt;
+Accessed: &lt;em&gt;April 1, 2020&lt;/em&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;graffiti-incidents-in-february-2020&quot;&gt;Graffiti Incidents in February 2020&lt;/h1&gt;
+
+&lt;h2 id=&quot;intepretation&quot;&gt;Intepretation&lt;/h2&gt;
+&lt;p&gt;The intention was to visualize graffiti incident per San Francisco police district for February 2020. Hovering over a district will outline it and display the number of incidents for that particular district.&lt;/p&gt;
+
+&lt;p&gt;Color scale used for this visualization is a threshold one.&lt;/p&gt;
+
+&lt;h2 id=&quot;data-wrangling&quot;&gt;Data Wrangling&lt;/h2&gt;
+
+&lt;p&gt;Data rollup performed by police districts, counting the incidents.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
+
+&lt;p&gt;My naive assumption before-hand was that the more ‘well-off’ neighborhoods would have higher levels of incidents. This was clearly a wrong bias.&lt;/p&gt;
+
+&lt;h3 id=&quot;choropleth-map-depicting-the-graffiti-incidents-in-san-francisco-for-february-2020&quot;&gt;Choropleth map depicting the graffiti incidents in San Francisco for February 2020&lt;/h3&gt;
+&lt;svg width=&quot;960&quot; height=&quot;600&quot; id=&quot;vis&quot;&gt;
+    &lt;g id=&quot;basemap&quot;&gt;&lt;/g&gt;
+    &lt;g id=&quot;outline&quot; pointer-events=&quot;none&quot;&gt;&lt;/g&gt;
+    &lt;g id=&quot;tooltip&quot; pointer-events=&quot;none&quot;&gt;&lt;/g&gt;
+    &lt;g id=&quot;details&quot; pointer-events=&quot;none&quot;&gt;&lt;/g&gt;
+  &lt;/svg&gt;
+
+&lt;figcaption&gt;
+    Author: Dejan Djokic &lt;br /&gt;
+    Source: &lt;a href=&quot;https://data.sfgov.org/City-Infrastructure/311-Cases/vw6y-z8j6&quot;&gt;311 Cases&lt;/a&gt; (&lt;a href=&quot;https://data.sfgov.org/Geographic-Locations-and-Boundaries/Analysis-Neighborhoods/p5b7-5n3h&quot;&gt;Neighborhoods&lt;/a&gt;)
+  &lt;/figcaption&gt;
+
+&lt;p&gt;Resources/Inspirations:&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://bl.ocks.org/adamjanes/6cf85a4fd79e122695ebde7d41fe327f&quot;&gt;adamjanes Blocks&lt;/a&gt;&lt;/em&gt;&lt;br /&gt;
+&lt;em&gt;&lt;a href=&quot;https://bl.ocks.org/sjengle/2f6d4832397e3cdd78d735774cb5a4f2&quot;&gt;sjengle Blocks&lt;/a&gt;&lt;/em&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;script src=&quot;https://d3js.org/d3.v5.js&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;../d3-vis/h3-choropleth/choropleth.js&quot;&gt;&lt;/script&gt;
+
+&lt;link href=&quot;https://fonts.googleapis.com/css?family=Roboto&quot; rel=&quot;stylesheet&quot; /&gt;
+
+&lt;link href=&quot;../stylesheets/style-h3.css&quot; rel=&quot;stylesheet&quot; /&gt;
+
+</description>
+        <pubDate>Thu, 09 Apr 2020 00:00:00 -0600</pubDate>
+        <link>https://usf-cs360-spring2020.github.io/homework4-djokicx/posts/hw-3</link>
+        <guid isPermaLink="true">https://usf-cs360-spring2020.github.io/homework4-djokicx/posts/hw-3</guid>
+      </item>
+    
+      <item>
+        <title>Mobility Report Cards (H2)</title>
+        <description>&lt;h2 id=&quot;dataset&quot;&gt;Dataset&lt;/h2&gt;
+
+&lt;p&gt;Source: Opportunity Insights&lt;br /&gt;
+Publishing Paper: Mobility Report Cards: The Role of Colleges in Intergenerational Mobility&lt;br /&gt;
+Data: &lt;a href=&quot;https://opportunityinsights.org/wp-content/uploads/2018/04/mrc_table2.csv&quot;&gt;opportunityinsights.org/paper/mobilityreportcards&lt;/a&gt;&lt;br /&gt;
+Rows: &lt;strong&gt;2198&lt;/strong&gt;&lt;br /&gt;
+Columns: &lt;strong&gt;40&lt;/strong&gt;&lt;br /&gt;
+License: Publicly Available Dataset&lt;br /&gt;
+Accessed: &lt;em&gt;February 20, 2020&lt;/em&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;brief-overview&quot;&gt;Brief Overview&lt;/h2&gt;
+&lt;p&gt;Aiming for the highest grade &lt;strong&gt;(A)&lt;/strong&gt; with submission of &lt;strong&gt;&lt;em&gt;1&lt;/em&gt;&lt;/strong&gt; Raw Graphics prototype &amp;amp; &lt;strong&gt;&lt;em&gt;1&lt;/em&gt;&lt;/strong&gt; D3.js (v5) visualization (Parallel Coordinates)&lt;/p&gt;
+
+&lt;h1 id=&quot;intergenerational-mobility-insights&quot;&gt;Intergenerational Mobility Insights&lt;/h1&gt;
+
+&lt;h2 id=&quot;parallel-coordinates-depicting-the-role-of-colleges-in-intergenerational-mobility---rough-prototype&quot;&gt;Parallel Coordinates depicting the role of Colleges in Intergenerational Mobility - Rough Prototype&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;../d3-vis/h2-parallel/proto/proto.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Source: &lt;a href=&quot;https://opportunityinsights.org/wp-content/uploads/2018/04/mrc_table2.csv&quot;&gt;opportunityinsights.org/paper/mobilityreportcards&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;intepretation&quot;&gt;Intepretation&lt;/h2&gt;
+
+&lt;p&gt;The intention was to visualize and compare the several individual observations in regards to each college. Each line represents a college. Each vertical bar represents a variable pertaining to the college and it has it’s own scale (linear scale with min-max value bounds). The observations chosen are following (left-to-right):&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Tier&lt;/code&gt; : Representing selectivity and type combination (e.g. Selective Private)&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Mean Parental Income&lt;/code&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Mean Kid Earnings&lt;/code&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Mobility Rate&lt;/code&gt; : Probability of parents in the bottom quantile and child (student) in the top quantile of income distribution&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Upper-Tail Mobility Rate&lt;/code&gt; : Probability of parents in the bottom quantile and child (student) in the top 1% of income distribution&lt;/p&gt;
+
+&lt;p&gt;It is worthwhile noting the tier number encodings:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Ivy Plus,&lt;/li&gt;
+  &lt;li&gt;Other elite schools (public and private),&lt;/li&gt;
+  &lt;li&gt;Highly selective public,&lt;/li&gt;
+  &lt;li&gt;Highly selective private,&lt;/li&gt;
+  &lt;li&gt;Selective public,&lt;/li&gt;
+  &lt;li&gt;Selective private&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The prototype is a bit messy. Parallel coordinates are difficult to interpret without brushing simply because of the data density. This, alongside with legend for color encoding, has been adjusted in the D3 implementation. The big challenge was a decision where to place the legend because this type of visualizations takes up a lot of space, especially in width. Still, it made most visual sense to place it on the right hand side, despite it being a tight fit.&lt;/p&gt;
+
+&lt;h2 id=&quot;data-wrangling&quot;&gt;Data Wrangling&lt;/h2&gt;
+
+&lt;p&gt;A row represents a college with all the respective observations. There was no specific data wrangling or any other kind of transformation. One thing perfomed on the data was filtering based on the above mentioned tier. The following tiers have been filtered out from the data:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Nonselective 4-year public,&lt;/li&gt;
+  &lt;li&gt;Nonselective 4-year private not-for-profit,&lt;/li&gt;
+  &lt;li&gt;Two-year (public and private not-for-profit),&lt;/li&gt;
+  &lt;li&gt;Four-year for-profit,&lt;/li&gt;
+  &lt;li&gt;Two-year for-profit,&lt;/li&gt;
+  &lt;li&gt;Less than two year schools of any type,&lt;/li&gt;
+  &lt;li&gt;Attending college with insufficient data&lt;/li&gt;
+  &lt;li&gt;Not in college between the ages of 19-22&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can find the filtered data &lt;a href=&quot;../d3-vis/h2-parallel/mrc_table2.csv&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
+
+&lt;p&gt;We can make the following conclusion that the authors state in the paper:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;…Rates of upward mobility – the fraction of students who come from families in the bottom income quintile and reach the top quintile – differ substantially across colleges because low-income access varies significantly  across  colleges  with&lt;br /&gt;
+similar  earnings  outcomes.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;We can also conclude that the rates of bottom-to-top quantile mobility are really high for highly selective public colleges.&lt;/p&gt;
+
+&lt;p&gt;Another thing that sticks out is that, the higher selectivity of the college, the bigger the odds that the student is coming from a family with higher income.&lt;/p&gt;
+
+&lt;p&gt;Upper-tail mobility varies, although on average it seems that it fancies Ivy Plus tier and Other elite schools (public and private).&lt;/p&gt;
+
+&lt;h3 id=&quot;parallel-coordinates-depicting-the-role-of-colleges-in-intergenerational-mobility&quot;&gt;Parallel Coordinates depicting the role of Colleges in Intergenerational Mobility&lt;/h3&gt;
+
+&lt;svg id=&quot;parallel&quot;&gt;&lt;/svg&gt;
+
+&lt;p&gt;&lt;em&gt;Author: Dejan Djokic&lt;/em&gt; &lt;br /&gt;
+&lt;em&gt;Original Data Source: &lt;a href=&quot;https://opportunityinsights.org/wp-content/uploads/2018/04/mrc_table2.csv&quot;&gt;opportunityinsights.org/paper/mobilityreportcards&lt;/a&gt;&lt;/em&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Resources/Inspirations:&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://www.data-to-viz.com/graph/parallel.html&quot;&gt;Data-To-Viz&lt;/a&gt;&lt;/em&gt;&lt;br /&gt;
+&lt;em&gt;&lt;a href=&quot;https://www.d3-graph-gallery.com/graph/parallel_basic.html&quot;&gt;D3-Graph-Gallery Ex 1&lt;/a&gt;&lt;/em&gt;&lt;br /&gt;
+&lt;em&gt;&lt;a href=&quot;https://www.d3-graph-gallery.com/graph/parallel_custom.html&quot;&gt;D3-Graph-Gallery Ex 2&lt;/a&gt;&lt;/em&gt;&lt;br /&gt;
+&lt;em&gt;&lt;a href=&quot;&quot;&gt;Homework 1&lt;/a&gt;&lt;/em&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;script src=&quot;https://d3js.org/d3.v5.js&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;../d3-vis/h2-parallel/parallel.js&quot;&gt;&lt;/script&gt;
+
+&lt;link href=&quot;https://fonts.googleapis.com/css?family=Roboto&quot; rel=&quot;stylesheet&quot; /&gt;
+
+&lt;link href=&quot;../stylesheets/style-h2.css&quot; rel=&quot;stylesheet&quot; /&gt;
+
+</description>
+        <pubDate>Fri, 28 Feb 2020 00:00:00 -0700</pubDate>
+        <link>https://usf-cs360-spring2020.github.io/homework4-djokicx/posts/hw-2</link>
+        <guid isPermaLink="true">https://usf-cs360-spring2020.github.io/homework4-djokicx/posts/hw-2</guid>
+      </item>
+    
+      <item>
+        <title>SFO Passengers Data (H1)</title>
+        <description>&lt;h2 id=&quot;dataset&quot;&gt;Dataset&lt;/h2&gt;
+
+&lt;p&gt;Source: &lt;a href=&quot;data.sfgov.org&quot;&gt;data.sfgov.org&lt;/a&gt;&lt;br /&gt;
+Publishing Department: Airport (SFO)&lt;br /&gt;
+Rows: &lt;strong&gt;21.2K&lt;/strong&gt;&lt;br /&gt;
+Columns: &lt;strong&gt;12&lt;/strong&gt;&lt;br /&gt;
+License: Public Domain Dedication and License v1.0 (PDDL)&lt;br /&gt;
+Accessed: &lt;em&gt;February 01, 2020&lt;/em&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;brief-overview&quot;&gt;Brief Overview&lt;/h2&gt;
+&lt;p&gt;Aiming for the highest grade &lt;strong&gt;(A)&lt;/strong&gt; with submission of &lt;strong&gt;&lt;em&gt;3&lt;/em&gt;&lt;/strong&gt; Tableau prototypes &amp;amp; &lt;strong&gt;&lt;em&gt;2&lt;/em&gt;&lt;/strong&gt; D3.js visualizations&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;A heatmap visualizing number of passengers in the inclusive time range 2010 - 2018 for airlines that had less than 1M passengers per year
+    &lt;ul&gt;
+      &lt;li&gt;Encoded data using an acceptable encoding: &lt;strong&gt;heatmap&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;Data grouped by individual Operating Airline Passenger Count per year&lt;/li&gt;
+      &lt;li&gt;Used Viridis color palette to encode the data, presented in the legend on the right&lt;/li&gt;
+      &lt;li&gt;Used titles and axis labels&lt;/li&gt;
+      &lt;li&gt;Included captions with my name and original data source
+ &lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;A stacked bar chart visualizing the number of passengers in the inclusive time range 2010 - 2018 for airlines that had less than 1M passengers per year, while separating them by activity (Enplaned vs Deplaned, which is equivalent to Arriving vs Departing passengers)
+    &lt;ul&gt;
+      &lt;li&gt;Encoded data using an acceptable encoding: &lt;strong&gt;stacked bars&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;Data grouped by Passenger Count for Activity Type across airlines satisfying above conditions (less than 1M passengers in total per annum) per year&lt;/li&gt;
+      &lt;li&gt;Used two colors to differentiate Activity type, presented in the legend on the right&lt;/li&gt;
+      &lt;li&gt;Used titles and axis labels&lt;/li&gt;
+      &lt;li&gt;Included captions with my name and original data source&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;visualization-1&quot;&gt;Visualization 1&lt;/h1&gt;
+
+&lt;h2 id=&quot;tableu-prototype&quot;&gt;Tableu Prototype&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;../d3-vis/h1-heatmap/tabl/proto.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;intepretation&quot;&gt;Intepretation&lt;/h2&gt;
+
+&lt;p&gt;On the X-axis we represent the inclusive time range 2010 - 2018, while the Y-axis represents the airline.&lt;/p&gt;
+
+&lt;p&gt;Passenger count in the heatmap is given for each airline (Y-axis) in a particular year (X-axis). Passenger count is encoded by Viridis color palette, with the legend displayed on the right-hand side. Colors with blue-ish hues are at the bottom of the scale representing smaller values, while colors with yellow-ish hues are at the top of the scale representing larger values.&lt;/p&gt;
+
+&lt;h2 id=&quot;data-wrangling&quot;&gt;Data Wrangling&lt;/h2&gt;
+
+&lt;p&gt;A row in the raw data represented passenger count for an airline in a given month of the year (this is a subset of each row info, as more columns were included in the original data). Data is slightly incomplete for the year 2019 and is missing 3 months. For this reason, 2019 related data was excluded.&lt;/p&gt;
+
+&lt;p&gt;After summarizing yearly passenger count for a particular airline, the following criteria were used to filter the results and exclude:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Airlines with passenger count &amp;gt; 1M for any particular year - so one can say this visualizes smaller volume airlines&lt;/li&gt;
+  &lt;li&gt;Airlines that had gap data (missing any month or a year) in the original data&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;You can find the filtered data &lt;a href=&quot;../d3-vis/h1-heatmap/airlines-clean.csv&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
+
+&lt;p&gt;We can conclude that there is generally a growth trend, although not significant. One interesting case is the “Frontier Airline” who experienced massive growth in passengers through SFO during the inclusive 2013-2016 time range, and then sharply fell in the following years.&lt;/p&gt;
+
+&lt;h3 id=&quot;sfo-passenger-trends-in-the-inclusive-2010-2018-time-range-for-airline-w-less-than-1-m-passengers-total-per-year&quot;&gt;SFO Passenger Trends in the inclusive 2010-2018 time range for airline w less than 1 M passengers total per year&lt;/h3&gt;
+
+&lt;svg id=&quot;heatmap&quot;&gt;&lt;/svg&gt;
+
+&lt;p&gt;&lt;em&gt;Author: Dejan Djokic&lt;/em&gt; &lt;br /&gt;
+&lt;em&gt;Original Data Source: &lt;a href=&quot;data.sfgov.org&quot;&gt;data.sfgov.org&lt;/a&gt;&lt;/em&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Resources/Inspirations:&lt;br /&gt;
+&lt;em&gt;&lt;a href=&quot;https://www.d3-graph-gallery.com/graph/heatmap_basic.html&quot;&gt;D3-Graph-Gallery&lt;/a&gt;&lt;/em&gt;&lt;br /&gt;
+&lt;em&gt;&lt;a href=&quot;https://blockbuilder.org/sjengle/47c5c20a18ec29f4e2b82905bdb7fe95&quot;&gt;Affordability Heatmap&lt;/a&gt;&lt;/em&gt;&lt;br /&gt;
+&lt;em&gt;&lt;a href=&quot;https://blockbuilder.org/achebrol/31833ec3fb7554d2b8e01e1ab32a09d1&quot;&gt;BlockBuilder Example&lt;/a&gt;&lt;/em&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;visualization-2&quot;&gt;Visualization 2&lt;/h1&gt;
+
+&lt;h2 id=&quot;tableu-prototype-1&quot;&gt;Tableu Prototype&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;../d3-vis//h1-stacked-chart/tabl/proto.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;intepretation-1&quot;&gt;Intepretation&lt;/h2&gt;
+
+&lt;p&gt;On the X-axis we represent the inclusive time range 2010 - 2018, while the Y-axis represents the number of passengers, in millions.&lt;/p&gt;
+
+&lt;p&gt;The stacked bars represent passenger activity (Enplaned vs Deplaned, which is equivalent to Arriving vs Departing passengers). We can reference the Y-axis to determine roughly the amount of passengers. But more so, we can compare the stacked bars from different years and see how the passenger count has changed for the two activities. Enplaned activity is represented with color hex &lt;code class=&quot;highlighter-rouge&quot;&gt;#4d78a7&lt;/code&gt;, while Deplaned activity is represented with color hex &lt;code class=&quot;highlighter-rouge&quot;&gt;#f28e2c&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;data-wrangling-1&quot;&gt;Data Wrangling&lt;/h2&gt;
+
+&lt;p&gt;From &lt;a href=&quot;#visualization-1&quot;&gt;Visualization #1&lt;/a&gt; data manipulation we filtered the airlines that we are interested in. For those same airlines, we summed all of their passengers’ counts for a particular passenger activity in a given year. Once again we excluded 2019 data due to incompleteness. Activity titled ‘Transit’ was also excluded, as it had only one data point.&lt;/p&gt;
+
+&lt;p&gt;You can find the filtered data &lt;a href=&quot;../d3-vis/h1-stacked-chart/data-clean.csv&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusions-1&quot;&gt;Conclusions&lt;/h2&gt;
+
+&lt;p&gt;We can conclude that the number of passengers Arriving and Departing stays more or less equally split for any given year. That is, it seems that there is a golden ration between Arriving and Departing passengers. Once again we can conclude that there is a growth trend overall in the number of passengers year-to-year just like we did in the first visualization. In this visualization, however, that is more apparent.&lt;/p&gt;
+
+&lt;h3 id=&quot;a-stacked-bar-chart-visualizing-the-number-of-passengers-in-the-inclusive-time-range-2010---2018-for-airlines-that-had-less-than-1m-passengers-per-year-while-separating-them-by-activity-enplaned-vs-deplaned&quot;&gt;A stacked bar chart visualizing the number of passengers in the inclusive time range 2010 - 2018 for airlines that had less than 1M passengers per year, while separating them by activity (Enplaned vs Deplaned)&lt;/h3&gt;
+&lt;svg width=&quot;960&quot; height=&quot;600&quot; id=&quot;vis&quot;&gt;
+    &lt;g id=&quot;basemap&quot;&gt;&lt;/g&gt;
+
+    &lt;!-- turn off pointer events for certain groups --&gt;
+    &lt;g id=&quot;streets&quot; pointer-events=&quot;none&quot;&gt;&lt;/g&gt;
+    &lt;g id=&quot;outline&quot; pointer-events=&quot;none&quot;&gt;&lt;/g&gt;
+
+    &lt;g id=&quot;arrests&quot;&gt;&lt;/g&gt;
+    &lt;g id=&quot;tooltip&quot; pointer-events=&quot;none&quot;&gt;&lt;/g&gt;
+    &lt;g id=&quot;details&quot; pointer-events=&quot;none&quot;&gt;&lt;/g&gt;
+  &lt;/svg&gt;
+
+&lt;figcaption&gt;
+    Source: &lt;a href=&quot;https://data.sfgov.org/Public-Safety/Police-Department-Incident-Reports-2018-to-Present/wg3w-h783&quot;&gt;Police Department Incident Reports: 2018 to Present&lt;/a&gt; (&lt;a href=&quot;https://data.sfgov.org/Geographic-Locations-and-Boundaries/Analysis-Neighborhoods/p5b7-5n3h&quot;&gt;Neighborhoods&lt;/a&gt;, &lt;a href=&quot;https://data.sfgov.org/Geographic-Locations-and-Boundaries/Streets-Active-and-Retired/3psu-pn9h&quot;&gt;Streets&lt;/a&gt;)
+  &lt;/figcaption&gt;
+
+&lt;p&gt;&lt;em&gt;Author: Dejan Djokic&lt;/em&gt; &lt;br /&gt;
+&lt;em&gt;Original Data Source: &lt;a href=&quot;data.sfgov.org&quot;&gt;data.sfgov.org&lt;/a&gt;&lt;/em&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Resources/Inspirations:&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://www.d3-graph-gallery.com/graph/custom_legend.html&quot;&gt;D3-Graph-Gallery Ex 1&lt;/a&gt;&lt;/em&gt;&lt;br /&gt;
+&lt;em&gt;&lt;a href=&quot;https://www.d3-graph-gallery.com/graph/barplot_stacked_basicWide.html&quot;&gt;D3-Graph-Gallery Ex 2&lt;/a&gt;&lt;/em&gt;&lt;br /&gt;
+&lt;em&gt;&lt;a href=&quot;https://observablehq.com/@ericd9799/learning-stacked-bar-chart-in-d3-js&quot;&gt;BlockBuilder Example&lt;/a&gt;&lt;/em&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;visualization-3---prototype-only&quot;&gt;Visualization 3 - Prototype Only&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;../d3-vis/h1-stacked-chart-2/proto/proto.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;script src=&quot;https://d3js.org/d3.v5.js&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;../d3-vis/h1-heatmap/heatmap.js&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;../d3-vis/h1-stacked-chart/stacked.js&quot;&gt;&lt;/script&gt;
+
+&lt;link href=&quot;../stylesheets/style-h1.css&quot; rel=&quot;stylesheet&quot; /&gt;
+
+</description>
+        <pubDate>Wed, 12 Feb 2020 00:00:00 -0700</pubDate>
+        <link>https://usf-cs360-spring2020.github.io/homework4-djokicx/posts/hw-1</link>
+        <guid isPermaLink="true">https://usf-cs360-spring2020.github.io/homework4-djokicx/posts/hw-1</guid>
+      </item>
+    
+  </channel>
+</rss>

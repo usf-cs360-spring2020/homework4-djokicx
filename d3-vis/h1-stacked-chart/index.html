@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="author" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel= "stylesheet" href= "styles.css">
+
+</head>
+
+<body>
+<!-- <h2>Yearly SFO Passengers across Airlines with < 1M/year for inclusive timeperiod: 2010 - 2019</h2> -->
+
+<h2>Yearly SFO Passengers enplaning/deplaning across Airlines with < 1M/year for inclusive timeperiod: 2010 - 2019</h2>
+  <!-- Create a div where the graph will take place -->
+<svg></svg>
+
+<p>
+
+</p>
+
+  <script src="https://d3js.org/d3.v5.js"></script>
+</body>
+
+</html>
+
+<script>
+
+Promise.all([
+    d3.csv("data.csv"),
+    d3.csv("airline-set.csv"),
+]).then(function(files) {
+    // set of allowed airlines, concluded from the previous visualization
+    let airlines = new Set();
+
+    files[1].forEach(e => {
+        airlines.add(e.airline);   
+    });
+
+    let map = new Map();
+
+    files[0].forEach(e => {
+        if(airlines.has(e.airline)) {
+
+        let year = e.period.substring(0, 4);
+
+        // if year not in map, add it
+        if(!map.has(year)) {
+            map.set(year, new Map());
+        }
+
+        // if year's map does not have activity, add it with count 0
+        if(!map.get(year).has(e.activity)) {
+            map.get(year).set(e.activity, 0);
+          }
+
+          map.get(year).set(e.activity, map.get(year).get(e.activity) + +e.count)
+        }
+        
+    });
+
+    let entries = [];
+
+    for(let elem of map) {
+        let entry = {};
+        entry.year = elem[0];
+        for(let activity of elem[1]) {
+            if(activity[0] == "Transit") continue;
+            entry[activity[0].toLowerCase()] = activity[1];
+        }
+        entries.push(entry);
+    }
+
+    entries.sort((a, b) => (a.year > b.year) ? 1 : -1);
+    console.log(entries);
+
+    return entries;
+}).then(function(data) {
+
+    
+    var margin = {top: 10, right: 30, bottom: 50, left: 50},
+        width = 850 - margin.left - margin.right,
+        height = 400 - margin.top - margin.bottom;
+
+    // selection method accepts all kind of selector strings and returns the first matching element
+    var svg = d3.select("svg")
+      .append("svg")
+      .append("g")
+        .attr("transform",
+              "translate(" + margin.left * 1.5 + "," + margin.top * 1.5 + ")");;
+
+    const chart = svg.append('g')
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom)
+                    .attr('transform', `translate(${margin}, ${margin})`);
+
+    let x = {};
+    let xScale = d3.scaleBand()
+        .domain(data.map(function(d) { return d.year}))
+        .range([0, width])
+        .padding(0.1);
+
+
+
+    let yScale = d3.scaleLinear()
+        .domain([0, 8000000])
+        .range([height, 0]);
+
+
+
+    chart.append('g').call(d3.axisLeft(yScale).ticks(20, "s"));
+    chart.append('g').attr('transform', `translate(0, ${height})`)
+        .call(d3.axisBottom(xScale));
+
+    let activity = ["enplaned", "deplaned"];
+// color palette = one color per subgroup
+    var color = d3.scaleOrdinal()
+        .domain(activity)
+        .range(['#e41a1c','#377eb8'])
+
+    var stackedData = d3.stack()
+        .keys(activity)
+        (data)
+
+
+    svg.append("g")
+        .selectAll("g")
+        // Enter in the stack data = loop key per key = group per group
+        .data(stackedData)
+        .enter().append("g")
+          .attr("fill", function(d) { return color(d.key); })
+          .selectAll("rect")
+          // enter a second time = loop subgroup per subgroup to add all rectangles
+          .data(function(d) { return d; })
+          .enter().append("rect")
+            .attr("x", function(d) { return xScale(d.data.year); })
+            .attr("y", function(d) { return yScale(d[1]); })
+            .attr("height", function(d) { return yScale(d[0]) - yScale(d[1]); })
+            .attr("width",xScale.bandwidth())
+    
+
+      chart.append('g')
+      .attr('class', 'grid')
+      .call(d3.axisLeft()
+        .scale(yScale)
+        .tickSize(-width, 0, 0)
+        .tickFormat(''))
+
+    var keys = ["Enplaned", "Deplaned"];
+
+// Add one dot in the legend for each name.
+svg.selectAll("mydots")
+  .data(keys)
+  .enter()
+  .append("circle")
+    .attr("cx", width + 25)
+    .attr("cy", function(d,i){ return 10 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+    .attr("r", 7)
+    .style("fill", function(d){ return color(d)})
+
+// Add one dot in the legend for each name.
+svg.selectAll("mylabels")
+  .data(keys)
+  .enter()
+  .append("text")
+    .attr("x", width + 35)
+    .attr("y", function(d,i){ return 10 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+    .style("fill", function(d){ return color(d)})
+    .text(function(d){ return d})
+    .attr("text-anchor", "left")
+    .style("alignment-baseline", "middle")
+
+
+    
+}).catch(function(err) {
+    // handle error here
+})
+
+        
+
+        
+
+</script>
+// <!-- https://stackoverflow.com/questions/21842384/importing-data-from-multiple-csv-files-in-d3 -->
+// <!-- http://bl.ocks.org/mstanaland/6100713 -->

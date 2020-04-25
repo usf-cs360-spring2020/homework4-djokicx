@@ -1,0 +1,128 @@
+
+<!doctype>
+<html lang="en">
+  <head>
+    <meta content='Graffiti Incidents in San Francisco (H3) - Dejan Djokic' name='title' />
+    <meta content='Graffiti Incidents in San Francisco (H3) - Dejan Djokic' name='og:title' />
+    <title>Graffiti Incidents in San Francisco (H3) - Dejan Djokic</title>
+    <link href='https://usf-cs360-spring2020.github.io/homework4-djokicx/images/fav.png' rel='shortcut icon'>
+<link href='https://usf-cs360-spring2020.github.io/homework4-djokicx/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='https://usf-cs360-spring2020.github.io/homework4-djokicx/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <meta content='https://usf-cs360-spring2020.github.io/homework4-djokicx/posts/hw-3' property='og:url' />
+  <meta content="DatasetSource: SF Gov DataPublishing Department: 311Data: https://data.sfgov.org/City-Infrastructure/311-Cases/vw6y-z..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+
+<!--  -->
+
+
+
+  </head>
+  <body class="lh-copy dark-gray pa0 f6 sans-serif bg-super-white">
+    <header class="tc mt4">
+      <a href="https://usf-cs360-spring2020.github.io/homework4-djokicx">
+        <img src="https://usf-cs360-spring2020.github.io/homework4-djokicx/images/scribble.png" alt="Home" width="53" height="59">
+      </a>
+      <p>Dejan Djokic</p>
+    </header>
+    <div class="w-80 bg-white mt4 mb3 center br2-ns bt bb ba-ns b--light-gray">
+      <nav class="bb b--light-gray pv4 tc" aria-label="Main">
+        
+          <a class="link blue hover-mid-gray mh2 pv1"
+             href="https://usf-cs360-spring2020.github.io/homework4-djokicx/">
+             Posts
+           </a>
+        
+          <a class="link blue hover-mid-gray mh2 pv1"
+             href="https://usf-cs360-spring2020.github.io/homework4-djokicx/about">
+             About me
+           </a>
+        
+      </nav>
+
+      <main class="tl f6 relative pa4 pa5-ns overflow-hidden">
+        
+          <div class="mb4">
+            <div class="fw600 light-silver mt1">09 Apr 2020</div>
+            <h1 class="ttu f3 mt0 lh-title cb mb2">
+              
+              Graffiti Incidents in San Francisco (H3)
+            </h1>
+            
+          </div>
+        
+        <div class="markdown-body">
+          <h2 id="dataset">Dataset</h2>
+
+<p>Source: SF Gov Data<br />
+Publishing Department: 311<br />
+Data: <a href="https://data.sfgov.org/City-Infrastructure/311-Cases/vw6y-z8j6">https://data.sfgov.org/City-Infrastructure/311-Cases/vw6y-z8j6</a><br />
+Rows: <strong>4.14M</strong> (subset used <strong>~6K</strong>)<br />
+Columns: <strong>20</strong><br />
+License: Open Data Commons Public Domain Dedication and License<br />
+Accessed: <em>April 1, 2020</em><br /></p>
+
+<h1 id="graffiti-incidents-in-february-2020">Graffiti Incidents in February 2020</h1>
+
+<h2 id="intepretation">Intepretation</h2>
+<p>The intention was to visualize graffiti incident per San Francisco police district for February 2020. Hovering over a district will outline it and display the number of incidents for that particular district.</p>
+
+<p>Color scale used for this visualization is a threshold one.</p>
+
+<h2 id="data-wrangling">Data Wrangling</h2>
+
+<p>Data rollup performed by police districts, counting the incidents.</p>
+
+<h2 id="conclusions">Conclusions</h2>
+
+<p>My naive assumption before-hand was that the more ‘well-off’ neighborhoods would have higher levels of incidents. This was clearly a wrong bias.</p>
+
+<h3 id="choropleth-map-depicting-the-graffiti-incidents-in-san-francisco-for-february-2020">Choropleth map depicting the graffiti incidents in San Francisco for February 2020</h3>
+<svg width="960" height="600" id="vis">
+    <g id="basemap"></g>
+    <g id="outline" pointer-events="none"></g>
+    <g id="tooltip" pointer-events="none"></g>
+    <g id="details" pointer-events="none"></g>
+  </svg>
+
+<figcaption>
+    Author: Dejan Djokic <br />
+    Source: <a href="https://data.sfgov.org/City-Infrastructure/311-Cases/vw6y-z8j6">311 Cases</a> (<a href="https://data.sfgov.org/Geographic-Locations-and-Boundaries/Analysis-Neighborhoods/p5b7-5n3h">Neighborhoods</a>)
+  </figcaption>
+
+<p>Resources/Inspirations:<br /></p>
+
+<p><em><a href="https://bl.ocks.org/adamjanes/6cf85a4fd79e122695ebde7d41fe327f">adamjanes Blocks</a></em><br />
+<em><a href="https://bl.ocks.org/sjengle/2f6d4832397e3cdd78d735774cb5a4f2">sjengle Blocks</a></em><br /></p>
+
+<script src="https://d3js.org/d3.v5.js"></script>
+
+<script src="../d3-vis/h3-choropleth/choropleth.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+
+<link href="../stylesheets/style-h3.css" rel="stylesheet" />
+
+
+        </div>
+        <p class="mt4">
+  Til next time,<br>
+  djokic
+  <span class="silver">2020-04-09 00:00:00 -0600</span>
+</p>
+<img src="https://usf-cs360-spring2020.github.io/homework4-djokicx/images/scribble3.png" alt="scribble" />
+
+      </main>
+      
+    </div>
+    <footer class="mw7 center tc pt3 pb4 silver">
+      Built with Jekyll using <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>.
+      <img src="https://usf-cs360-spring2020.github.io/homework4-djokicx/images/scribble2.png" alt="scribble" class="mt4 db center" />
+    </footer>
+  </body>
+</html>

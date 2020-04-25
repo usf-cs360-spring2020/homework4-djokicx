@@ -1,0 +1,175 @@
+
+<!doctype>
+<html lang="en">
+  <head>
+    <meta content='Mobility Report Cards (H2) - Dejan Djokic' name='title' />
+    <meta content='Mobility Report Cards (H2) - Dejan Djokic' name='og:title' />
+    <title>Mobility Report Cards (H2) - Dejan Djokic</title>
+    <link href='https://usf-cs360-spring2020.github.io/homework4-djokicx/images/fav.png' rel='shortcut icon'>
+<link href='https://usf-cs360-spring2020.github.io/homework4-djokicx/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='https://usf-cs360-spring2020.github.io/homework4-djokicx/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <meta content='https://usf-cs360-spring2020.github.io/homework4-djokicx/posts/hw-2' property='og:url' />
+  <meta content="DatasetSource: Opportunity InsightsPublishing Paper: Mobility Report Cards: The Role of Colleges in Intergenerational..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+
+<!--  -->
+
+
+
+  </head>
+  <body class="lh-copy dark-gray pa0 f6 sans-serif bg-super-white">
+    <header class="tc mt4">
+      <a href="https://usf-cs360-spring2020.github.io/homework4-djokicx">
+        <img src="https://usf-cs360-spring2020.github.io/homework4-djokicx/images/scribble.png" alt="Home" width="53" height="59">
+      </a>
+      <p>Dejan Djokic</p>
+    </header>
+    <div class="w-80 bg-white mt4 mb3 center br2-ns bt bb ba-ns b--light-gray">
+      <nav class="bb b--light-gray pv4 tc" aria-label="Main">
+        
+          <a class="link blue hover-mid-gray mh2 pv1"
+             href="https://usf-cs360-spring2020.github.io/homework4-djokicx/">
+             Posts
+           </a>
+        
+          <a class="link blue hover-mid-gray mh2 pv1"
+             href="https://usf-cs360-spring2020.github.io/homework4-djokicx/about">
+             About me
+           </a>
+        
+      </nav>
+
+      <main class="tl f6 relative pa4 pa5-ns overflow-hidden">
+        
+          <div class="mb4">
+            <div class="fw600 light-silver mt1">28 Feb 2020</div>
+            <h1 class="ttu f3 mt0 lh-title cb mb2">
+              
+              Mobility Report Cards (H2)
+            </h1>
+            
+          </div>
+        
+        <div class="markdown-body">
+          <h2 id="dataset">Dataset</h2>
+
+<p>Source: Opportunity Insights<br />
+Publishing Paper: Mobility Report Cards: The Role of Colleges in Intergenerational Mobility<br />
+Data: <a href="https://opportunityinsights.org/wp-content/uploads/2018/04/mrc_table2.csv">opportunityinsights.org/paper/mobilityreportcards</a><br />
+Rows: <strong>2198</strong><br />
+Columns: <strong>40</strong><br />
+License: Publicly Available Dataset<br />
+Accessed: <em>February 20, 2020</em><br /></p>
+
+<h2 id="brief-overview">Brief Overview</h2>
+<p>Aiming for the highest grade <strong>(A)</strong> with submission of <strong><em>1</em></strong> Raw Graphics prototype &amp; <strong><em>1</em></strong> D3.js (v5) visualization (Parallel Coordinates)</p>
+
+<h1 id="intergenerational-mobility-insights">Intergenerational Mobility Insights</h1>
+
+<h2 id="parallel-coordinates-depicting-the-role-of-colleges-in-intergenerational-mobility---rough-prototype">Parallel Coordinates depicting the role of Colleges in Intergenerational Mobility - Rough Prototype</h2>
+
+<p><img src="../d3-vis/h2-parallel/proto/proto.png" alt="" /></p>
+
+<p>Source: <a href="https://opportunityinsights.org/wp-content/uploads/2018/04/mrc_table2.csv">opportunityinsights.org/paper/mobilityreportcards</a></p>
+
+<h2 id="intepretation">Intepretation</h2>
+
+<p>The intention was to visualize and compare the several individual observations in regards to each college. Each line represents a college. Each vertical bar represents a variable pertaining to the college and it has it’s own scale (linear scale with min-max value bounds). The observations chosen are following (left-to-right):</p>
+
+<p><code class="highlighter-rouge">Tier</code> : Representing selectivity and type combination (e.g. Selective Private)<br />
+<code class="highlighter-rouge">Mean Parental Income</code><br />
+<code class="highlighter-rouge">Mean Kid Earnings</code><br />
+<code class="highlighter-rouge">Mobility Rate</code> : Probability of parents in the bottom quantile and child (student) in the top quantile of income distribution<br />
+<code class="highlighter-rouge">Upper-Tail Mobility Rate</code> : Probability of parents in the bottom quantile and child (student) in the top 1% of income distribution</p>
+
+<p>It is worthwhile noting the tier number encodings:</p>
+
+<ol>
+  <li>Ivy Plus,</li>
+  <li>Other elite schools (public and private),</li>
+  <li>Highly selective public,</li>
+  <li>Highly selective private,</li>
+  <li>Selective public,</li>
+  <li>Selective private</li>
+</ol>
+
+<p>The prototype is a bit messy. Parallel coordinates are difficult to interpret without brushing simply because of the data density. This, alongside with legend for color encoding, has been adjusted in the D3 implementation. The big challenge was a decision where to place the legend because this type of visualizations takes up a lot of space, especially in width. Still, it made most visual sense to place it on the right hand side, despite it being a tight fit.</p>
+
+<h2 id="data-wrangling">Data Wrangling</h2>
+
+<p>A row represents a college with all the respective observations. There was no specific data wrangling or any other kind of transformation. One thing perfomed on the data was filtering based on the above mentioned tier. The following tiers have been filtered out from the data:</p>
+
+<ul>
+  <li>Nonselective 4-year public,</li>
+  <li>Nonselective 4-year private not-for-profit,</li>
+  <li>Two-year (public and private not-for-profit),</li>
+  <li>Four-year for-profit,</li>
+  <li>Two-year for-profit,</li>
+  <li>Less than two year schools of any type,</li>
+  <li>Attending college with insufficient data</li>
+  <li>Not in college between the ages of 19-22</li>
+</ul>
+
+<p>You can find the filtered data <a href="../d3-vis/h2-parallel/mrc_table2.csv">here</a>.</p>
+
+<h2 id="conclusions">Conclusions</h2>
+
+<p>We can make the following conclusion that the authors state in the paper:</p>
+
+<blockquote>
+  <p>…Rates of upward mobility – the fraction of students who come from families in the bottom income quintile and reach the top quintile – differ substantially across colleges because low-income access varies significantly  across  colleges  with<br />
+similar  earnings  outcomes.</p>
+</blockquote>
+
+<p>We can also conclude that the rates of bottom-to-top quantile mobility are really high for highly selective public colleges.</p>
+
+<p>Another thing that sticks out is that, the higher selectivity of the college, the bigger the odds that the student is coming from a family with higher income.</p>
+
+<p>Upper-tail mobility varies, although on average it seems that it fancies Ivy Plus tier and Other elite schools (public and private).</p>
+
+<h3 id="parallel-coordinates-depicting-the-role-of-colleges-in-intergenerational-mobility">Parallel Coordinates depicting the role of Colleges in Intergenerational Mobility</h3>
+
+<svg id="parallel"></svg>
+
+<p><em>Author: Dejan Djokic</em> <br />
+<em>Original Data Source: <a href="https://opportunityinsights.org/wp-content/uploads/2018/04/mrc_table2.csv">opportunityinsights.org/paper/mobilityreportcards</a></em><br /></p>
+
+<p>Resources/Inspirations:<br /></p>
+
+<p><em><a href="https://www.data-to-viz.com/graph/parallel.html">Data-To-Viz</a></em><br />
+<em><a href="https://www.d3-graph-gallery.com/graph/parallel_basic.html">D3-Graph-Gallery Ex 1</a></em><br />
+<em><a href="https://www.d3-graph-gallery.com/graph/parallel_custom.html">D3-Graph-Gallery Ex 2</a></em><br />
+<em><a href="">Homework 1</a></em><br /></p>
+
+<script src="https://d3js.org/d3.v5.js"></script>
+
+<script src="../d3-vis/h2-parallel/parallel.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+
+<link href="../stylesheets/style-h2.css" rel="stylesheet" />
+
+
+        </div>
+        <p class="mt4">
+  Til next time,<br>
+  djokic
+  <span class="silver">2020-02-28 00:00:00 -0700</span>
+</p>
+<img src="https://usf-cs360-spring2020.github.io/homework4-djokicx/images/scribble3.png" alt="scribble" />
+
+      </main>
+      
+    </div>
+    <footer class="mw7 center tc pt3 pb4 silver">
+      Built with Jekyll using <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>.
+      <img src="https://usf-cs360-spring2020.github.io/homework4-djokicx/images/scribble2.png" alt="scribble" class="mt4 db center" />
+    </footer>
+  </body>
+</html>
